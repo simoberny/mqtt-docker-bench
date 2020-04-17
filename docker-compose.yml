@@ -1,0 +1,18 @@
+version: "3.2"
+services:
+  client:
+    build: './clients/'
+    networks:
+      - vp1
+
+  sink:
+    build: './sinks/'
+    networks:
+      - vp1
+      
+networks:
+  vp1:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 10.5.0.0/16

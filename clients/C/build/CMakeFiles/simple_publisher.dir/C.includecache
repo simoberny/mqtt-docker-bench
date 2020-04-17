@@ -1,0 +1,66 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/mqtt.h
+mqtt_pal.h
+-
+
+../include/mqtt_pal.h
+limits.h
+-
+string.h
+-
+stdarg.h
+-
+time.h
+-
+arpa/inet.h
+-
+pthread.h
+-
+openssl/bio.h
+-
+limits.h
+-
+windows.h
+-
+time.h
+-
+stdint.h
+-
+winsock2.h
+-
+openssl/bio.h
+-
+
+/home/anony/Scrivania/Progetto granelli/clients/C_impl/MQTT-C-master/examples/simple_publisher.c
+unistd.h
+-
+stdlib.h
+-
+stdio.h
+-
+time.h
+-
+mqtt.h
+-
+templates/posix_sockets.h
+/home/anony/Scrivania/Progetto granelli/clients/C_impl/MQTT-C-master/examples/templates/posix_sockets.h
+
+/home/anony/Scrivania/Progetto granelli/clients/C_impl/MQTT-C-master/examples/templates/posix_sockets.h
+stdio.h
+-
+sys/types.h
+-
+sys/socket.h
+-
+netdb.h
+-
+fcntl.h
+-
+

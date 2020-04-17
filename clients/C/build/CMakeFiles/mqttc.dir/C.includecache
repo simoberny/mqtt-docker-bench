@@ -1,0 +1,58 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/mqtt.h
+mqtt_pal.h
+-
+
+../include/mqtt_pal.h
+limits.h
+-
+string.h
+-
+stdarg.h
+-
+time.h
+-
+arpa/inet.h
+-
+pthread.h
+-
+openssl/bio.h
+-
+limits.h
+-
+windows.h
+-
+time.h
+-
+stdint.h
+-
+winsock2.h
+-
+openssl/bio.h
+-
+
+/home/anony/Scrivania/Progetto granelli/clients/C_impl/MQTT-C-master/src/mqtt.c
+mqtt.h
+-
+
+/home/anony/Scrivania/Progetto granelli/clients/C_impl/MQTT-C-master/src/mqtt_pal.c
+mqtt.h
+-
+openssl/bio.h
+-
+openssl/ssl.h
+-
+openssl/err.h
+-
+errno.h
+-
+errno.h
+-
+
