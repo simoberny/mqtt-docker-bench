@@ -1,4 +1,5 @@
-# mqtt-docker-bench
+# mqtt-docker-bench 
+[![Build Status](https://travis-ci.org/simoberny/mqtt-docker-bench.svg?branch=master)](https://travis-ci.org/simoberny/mqtt-docker-bench)
 MQTT protocol bench test based on Docker simulated sensor and Eclipse Mosquitto Broker
 
 Objective of the bench is to estimate the typical bandwitdh need of a MQTT protocol implementation. 
