@@ -29,14 +29,18 @@ Also change other settings, like QoS level, etc...
 
 Compile
 
-``cd build``
-``cmake ..``
-``make``
-``mv publish ../../`` 
+```bash
+cd build  
+cmake ..  
+make  
+mv publish ../../  
+```
 
 The last command move the new executable in the folder of Dockerfile, which will copy it on the container
 
 To start the docker's client: 
 
-``docker-compose up -d``
+```bash
+docker-compose up -d
+```
 
