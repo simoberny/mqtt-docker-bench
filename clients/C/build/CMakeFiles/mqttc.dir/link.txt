@@ -1,2 +1,0 @@
-/usr/bin/ar qc libmqttc.a  CMakeFiles/mqttc.dir/src/mqtt_pal.c.o CMakeFiles/mqttc.dir/src/mqtt.c.o
-/usr/bin/ranlib libmqttc.a

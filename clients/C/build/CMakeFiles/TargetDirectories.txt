@@ -1,8 +1,0 @@
-/home/anony/Scrivania/Progetto granelli/clients/C_impl/MQTT-C-master/build/CMakeFiles/install/local.dir
-/home/anony/Scrivania/Progetto granelli/clients/C_impl/MQTT-C-master/build/CMakeFiles/install/strip.dir
-/home/anony/Scrivania/Progetto granelli/clients/C_impl/MQTT-C-master/build/CMakeFiles/simple_publisher.dir
-/home/anony/Scrivania/Progetto granelli/clients/C_impl/MQTT-C-master/build/CMakeFiles/edit_cache.dir
-/home/anony/Scrivania/Progetto granelli/clients/C_impl/MQTT-C-master/build/CMakeFiles/mqttc.dir
-/home/anony/Scrivania/Progetto granelli/clients/C_impl/MQTT-C-master/build/CMakeFiles/rebuild_cache.dir
-/home/anony/Scrivania/Progetto granelli/clients/C_impl/MQTT-C-master/build/CMakeFiles/list_install_components.dir
-/home/anony/Scrivania/Progetto granelli/clients/C_impl/MQTT-C-master/build/CMakeFiles/install.dir
