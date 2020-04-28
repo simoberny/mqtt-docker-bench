@@ -36,7 +36,15 @@ make
 mv publish ../../  
 ```
 
-The last command move the new executable in the folder of Dockerfile, which will copy it on the container
+The last command move the new executable in the folder of Dockerfile, which will copy it on the container  
+The executable takes three parameter in:
+
+```
+./publish {boolean} {boolean} {integer}
+```
+>args 1: 0 for a message every second, 1 for realistic random behaviour
+>args 2: 0 if is a client, 1 for sink functionalities
+>agrs 3: number of client behind a sink  
 
 To start the docker's client: 
 

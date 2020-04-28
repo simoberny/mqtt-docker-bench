@@ -33,6 +33,35 @@ void* client_refresher(void* client);
  */
 void exit_example(int status, int sockfd, pthread_t *client_daemon);
 
+
+char * generate_string(){
+    int temp = (rand() % (25 - 0 + 1)) + 0;        
+    int hum = (rand() % (100 - 20 + 1)) + 20;
+
+    /* print a message */
+    char * application_message = malloc(100);
+    snprintf(application_message, 100, "%d C° - Humidity: %d %%", temp, hum);
+
+    return application_message;
+}
+
+char * gen_random(const int len) {
+    char * application_message = malloc(len);
+
+    char alphanum[] =
+        "0123456789"
+        "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        "abcdefghijklmnopqrstuvwxyz";
+
+    for (int i = 0; i < len; ++i) {
+        application_message[i] = alphanum[rand() % (sizeof(alphanum) - 1)];
+    }
+
+    application_message[len] = 0;
+
+    return application_message;
+}
+
 /**
  * A simple program to that publishes the current time whenever ENTER is pressed. 
  */
@@ -46,6 +75,7 @@ int main(int argc, const char *argv[])
     int method = 0;
     int sink = 0;
     int sensor_per_sink = 0;
+    int message_length = 0;
 
     if (argc > 1) {
         method = atoi(argv[1]);
@@ -57,6 +87,10 @@ int main(int argc, const char *argv[])
 
     if (argc > 3) {
         sensor_per_sink = atoi(argv[3]);
+    }
+
+    if (argc > 4) {
+        message_length = atoi(argv[4]);
     }
 
     addr = "192.168.178.47";
@@ -71,7 +105,7 @@ int main(int argc, const char *argv[])
 
     if (sockfd == -1) {
         perror("Failed to open socket: ");
-        exit_example(EXIT_FAILURE, sockfd, NULL);
+        // exit_example(EXIT_FAILURE, sockfd, NULL);
     }
 
     /* setup a client */
@@ -93,31 +127,32 @@ int main(int argc, const char *argv[])
     /* check that we don't have any errors */
     if (client.error != MQTT_OK) {
         fprintf(stderr, "error: %s\n", mqtt_error_str(client.error));
-        exit_example(EXIT_FAILURE, sockfd, NULL);
+        // exit_example(EXIT_FAILURE, sockfd, NULL);
     }
 
     /* start a thread to refresh the client (handle egress and ingree client traffic) */
-    pthread_t client_daemon;
+    /*pthread_t client_daemon;
     if(pthread_create(&client_daemon, NULL, client_refresher, &client)) {
         fprintf(stderr, "Failed to start client daemon.\n");
-        exit_example(EXIT_FAILURE, sockfd, NULL);
-    }
+        // exit_example(EXIT_FAILURE, sockfd, NULL);
+    }*/
 
     // Publishing infinite loop
-    while(1){   
-        int temp = (rand() % (25 - 0 + 1)) + 0;        
-        int hum = (rand() % (100 - 20 + 1)) + 20;
-
-        /* print a message */
-        char application_message[256];
-        snprintf(application_message, sizeof(application_message), "%d C° - Humidity: %d %%", temp, hum);
-        
+    while(1){           
         if(sink){
             for(int i = 0; i < sensor_per_sink; i++){
+                char *application_message = generate_string();
                 mqtt_publish(&client, topic, application_message, strlen(application_message) + 1, MQTT_PUBLISH_QOS_0);
             }
             printf("Sinks published %d message\n", sensor_per_sink);
+        }else if(message_length > 0){
+            char *application_message = gen_random(message_length);
+
+            mqtt_publish(&client, topic, application_message, strlen(application_message) + 1, MQTT_PUBLISH_QOS_0);
+            printf("%s published : \"%s\"\n", hostname, application_message);
         }else{
+            char *application_message = generate_string();
+
             mqtt_publish(&client, topic, application_message, strlen(application_message) + 1, MQTT_PUBLISH_QOS_0);
             printf("%s published : \"%s\"\n", hostname, application_message);
         }
@@ -125,8 +160,10 @@ int main(int argc, const char *argv[])
         /* check for errors */
         if (client.error != MQTT_OK) {
             fprintf(stderr, "error: %s\n", mqtt_error_str(client.error));
-            exit_example(EXIT_FAILURE, sockfd, &client_daemon);
+            // exit_example(EXIT_FAILURE, sockfd, &client_daemon);
         }
+
+        mqtt_sync(&client);
 
         if(method == 0){
             sleep(1);
@@ -134,11 +171,13 @@ int main(int argc, const char *argv[])
             int wait = (rand() % (5 - 0 + 1)) + 0;
             sleep(wait);
         }
+
+        
         
     }
 
     /* exit */ 
-    exit_example(EXIT_SUCCESS, sockfd, &client_daemon);
+    // exit_example(EXIT_SUCCESS, sockfd, &client_daemon);
 }
 
 void exit_example(int status, int sockfd, pthread_t *client_daemon)
