@@ -40,11 +40,12 @@ The last command move the new executable in the folder of Dockerfile, which will
 The executable takes three parameter in:
 
 ```
-./publish {boolean} {boolean} {integer}
+./publish {boolean} {boolean} {integer} {integer}
 ```
->args 1: 0 for a message every second, 1 for realistic random behaviour
->args 2: 0 if is a client, 1 for sink functionalities
->agrs 3: number of client behind a sink  
+>args 1: 0 for a message every second, 1 for realistic random behaviour  
+>args 2: 0 if is a client, 1 for sink functionalities  
+>agrs 3: number of client behind a sink    
+>agrs 4: payload length to send random string 
 
 To start the docker's client: 
 
