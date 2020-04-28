@@ -7,11 +7,38 @@
 \providecommand \acro@rerun@check {}
 \providecommand \acro@print@list {}
 \providecommand \acro@barriers [2]{}
-\bibstyle{IEEEtran}
-\bibdata{references}
-\acro@rerun@check 
+\citation{mqtt}
+\citation{mqtt_spec}
+\citation{steven}
 \babel@aux{american}{}
 \@writefile{toc}{\contentsline {section}{\numberline {I}Introduction}{1}\protected@file@percent }
 \newlabel{sec:introduction}{{I}{1}}
 \newlabel{sec:introduction@cref}{{[section][1][]I}{[1][1][]1}}
-\@writefile{toc}{\contentsline {section}{References}{1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {II}MQTT Protocol}{1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces MQTT packet format, with fixed header, variable header and payload}}{1}\protected@file@percent }
+\newlabel{fig:packet}{{1}{1}}
+\newlabel{fig:packet@cref}{{[figure][1][]1}{[1][1][]1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {II-A}}Fixed header}{1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {II-B}}Variable header}{1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {II-C}}Payload}{1}\protected@file@percent }
+\bibstyle{IEEEtran}
+\bibdata{references}
+\bibcite{mqtt}{1}
+\bibcite{mqtt_spec}{2}
+\bibcite{steven}{3}
+\acro@rerun@check 
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces MQTT communication: A sensors connect to the broker and \text  {publish} to a topic some value. Meanwhile, an app has connected to the broker and \textbf  {subscribe} to the same topic. So, the broker forwards the message published by the sensor to the app.}}{2}\protected@file@percent }
+\newlabel{fig:flow}{{2}{2}}
+\newlabel{fig:flow@cref}{{[figure][2][]2}{[1][1][]2}}
+\@writefile{toc}{\contentsline {section}{\numberline {III}Preparations}{2}\protected@file@percent }
+\newlabel{fig:strut}{{III}{2}}
+\newlabel{fig:strut@cref}{{[section][3][]III}{[1][2][]2}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Testing architecture}}{2}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{\numberline {\mbox  {III-}0a}Docker Sensors}{2}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{\numberline {\mbox  {III-}0b}MQTT Broker}{2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {IV}Testing}{2}\protected@file@percent }
+\newlabel{fig:mqtt3}{{IV}{2}}
+\newlabel{fig:mqtt3@cref}{{[section][4][]IV}{[1][2][]2}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Overhead of the protocol aside the particular example MQTT message}}{2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {V}Conclusions}{2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{References}{2}\protected@file@percent }
