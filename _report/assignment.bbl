@@ -21,6 +21,13 @@
 \providecommand{\BIBdecl}{\relax}
 \BIBdecl
 
+\bibitem{lowp}
+M.~V. Masdani and D.~Darlis, ``{A comprehensive study on MQTT as a low power
+  protocol for internet of things application},'' 2018.
+
+\bibitem{mosquitto}
+``{Mosquitto},'' \url{http://www.mosquitto.org,}, 2012.
+
 \bibitem{mqtt}
 OASIS, ``{MQTT site},'' \url{https://mqtt.org/}.
 
@@ -31,5 +38,13 @@ IBM, ``{MQTT v5 specification},''
 \bibitem{steven}
 Steven, ``{MQTT Control packet disassembled},''
   \url{http://www.steves-internet-guide.com/mqtt-protocol-messages-overview/}.
+
+\bibitem{qoslevel}
+D.-k. H. H.~J. Shinho~Lee, Hyeonwoo~Kim, ``{Correlation Analysis of MQTT Loss
+  and Delay According to QoS Level},'' 2019.
+
+\bibitem{datausage}
+S.~Chandrasekaran, ``{How to Optimize Data Usage Over MQTT?}''
+  \url{https://blog.usejournal.com/how-to-optimize-data-usage-over-mqtt-792abebd2cd1}.
 
 \end{thebibliography}

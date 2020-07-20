@@ -1,15 +1,17 @@
 \relax 
 \providecommand\zref@newlabel[2]{}
-\bbl@cs{beforestart}
 \providecommand \acro@used@once [4]{}
 \providecommand \acro@used@twice [4]{}
 \providecommand \acro@pages [2]{}
 \providecommand \acro@rerun@check {}
 \providecommand \acro@print@list {}
 \providecommand \acro@barriers [2]{}
+\citation{lowp}
+\citation{mosquitto}
 \citation{mqtt}
 \citation{mqtt_spec}
 \citation{steven}
+\citation{qoslevel}
 \babel@aux{american}{}
 \@writefile{toc}{\contentsline {section}{\numberline {I}Introduction}{1}\protected@file@percent }
 \newlabel{sec:introduction}{{I}{1}}
@@ -18,27 +20,63 @@
 \@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces MQTT packet format, with fixed header, variable header and payload}}{1}\protected@file@percent }
 \newlabel{fig:packet}{{1}{1}}
 \newlabel{fig:packet@cref}{{[figure][1][]1}{[1][1][]1}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {II-A}}Fixed header}{1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {II-B}}Variable header}{1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {II-C}}Payload}{1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {II-A}}Fixed header}{1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces QoS levels packet exchange}}{1}\protected@file@percent }
+\newlabel{fig:qos_level}{{2}{1}}
+\newlabel{fig:qos_level@cref}{{[figure][2][]2}{[1][1][]1}}
+\citation{mosquitto}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {II-B}}Variable header}{2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {II-C}}Payload}{2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces MQTT communication: A sensors connect to the broker and \text  {publish} to a topic some value. Meanwhile, an app has connected to the broker and \textbf  {subscribe} to the same topic. So, the broker forwards the message published by the sensor to the app.}}{2}\protected@file@percent }
+\newlabel{fig:flow}{{3}{2}}
+\newlabel{fig:flow@cref}{{[figure][3][]3}{[1][2][]2}}
+\@writefile{toc}{\contentsline {section}{\numberline {III}Preparation}{2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {III-A}}Docker Sensors (publisher)}{2}\protected@file@percent }
+\newlabel{sec:sensors}{{\unhbox \voidb@x \hbox {III-A}}{2}}
+\newlabel{sec:sensors@cref}{{[subsection][1][3]\unhbox \voidb@x \hbox {III-A}}{[1][2][]2}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Testing architecture}}{2}\protected@file@percent }
+\newlabel{fig:strut}{{4}{2}}
+\newlabel{fig:strut@cref}{{[figure][4][]4}{[1][2][]2}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {1}Docker-compose launch command}{2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {III-B}}Broker}{2}\protected@file@percent }
+\citation{qoslevel}
+\citation{datausage}
+\citation{qoslevel}
+\citation{qoslevel}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Overhead of the protocol aside the specific MQTT message used in this tests. Second image represent a MQTT grouping of message}}{3}\protected@file@percent }
+\newlabel{fig:overhead}{{5}{3}}
+\newlabel{fig:overhead@cref}{{[figure][5][]5}{[1][2][]3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {III-C}}Applicazione (subscriber)}{3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {IV}Testing}{3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IV-A}}Sensors number bandwidth analysis}{3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces MQTT bandwidth with different propagation profile and sensors number}}{3}\protected@file@percent }
+\newlabel{fig:sensors}{{6}{3}}
+\newlabel{fig:sensors@cref}{{[figure][6][]6}{[1][3][]3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IV-B}}Bandwidth analysis introducing sinks}{3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Bandwidth comparison with the introduction of a sink}}{3}\protected@file@percent }
+\newlabel{fig:sinks}{{7}{3}}
+\newlabel{fig:sinks@cref}{{[figure][7][]7}{[1][3][]3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IV-C}}Bandwidth analysis with different QoS levels}{3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IV-D}}Bandwidth analysis with different payload size}{3}\protected@file@percent }
 \bibstyle{IEEEtran}
 \bibdata{references}
-\bibcite{mqtt}{1}
-\bibcite{mqtt_spec}{2}
-\bibcite{steven}{3}
+\bibcite{lowp}{1}
+\bibcite{mosquitto}{2}
+\bibcite{mqtt}{3}
+\bibcite{mqtt_spec}{4}
+\bibcite{steven}{5}
+\bibcite{qoslevel}{6}
+\bibcite{datausage}{7}
 \acro@rerun@check 
-\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces MQTT communication: A sensors connect to the broker and \text  {publish} to a topic some value. Meanwhile, an app has connected to the broker and \textbf  {subscribe} to the same topic. So, the broker forwards the message published by the sensor to the app.}}{2}\protected@file@percent }
-\newlabel{fig:flow}{{2}{2}}
-\newlabel{fig:flow@cref}{{[figure][2][]2}{[1][1][]2}}
-\@writefile{toc}{\contentsline {section}{\numberline {III}Preparations}{2}\protected@file@percent }
-\newlabel{fig:strut}{{III}{2}}
-\newlabel{fig:strut@cref}{{[section][3][]III}{[1][2][]2}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Testing architecture}}{2}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{\numberline {\mbox  {III-}0a}Docker Sensors}{2}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{\numberline {\mbox  {III-}0b}MQTT Broker}{2}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {IV}Testing}{2}\protected@file@percent }
-\newlabel{fig:mqtt3}{{IV}{2}}
-\newlabel{fig:mqtt3@cref}{{[section][4][]IV}{[1][2][]2}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Overhead of the protocol aside the particular example MQTT message}}{2}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {V}Conclusions}{2}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{References}{2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces QoS total bandwidth comparison}}{4}\protected@file@percent }
+\newlabel{fig:qos}{{8}{4}}
+\newlabel{fig:qos@cref}{{[figure][8][]8}{[1][3][]4}}
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces Wireless Network message loss analysis result by Keimyung University \cite  {qoslevel}}}{4}\protected@file@percent }
+\newlabel{fig:loss}{{9}{4}}
+\newlabel{fig:loss@cref}{{[figure][9][]9}{[1][3][]4}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IV-E}}Correlations}{4}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces Overhead of the protocol QoS on different Payload size}}{4}\protected@file@percent }
+\newlabel{fig:payload}{{10}{4}}
+\newlabel{fig:payload@cref}{{[figure][10][]10}{[1][4][]4}}
+\@writefile{toc}{\contentsline {section}{\numberline {V}Conclusions}{4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{References}{4}\protected@file@percent }

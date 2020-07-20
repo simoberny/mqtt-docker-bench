@@ -76,6 +76,7 @@ int main(int argc, const char *argv[])
     int sink = 0;
     int sensor_per_sink = 0;
     int message_length = 0;
+    int qos_level = MQTT_PUBLISH_QOS_2;
 
     if (argc > 1) {
         method = atoi(argv[1]);
@@ -142,18 +143,18 @@ int main(int argc, const char *argv[])
         if(sink){
             for(int i = 0; i < sensor_per_sink; i++){
                 char *application_message = generate_string();
-                mqtt_publish(&client, topic, application_message, strlen(application_message) + 1, MQTT_PUBLISH_QOS_0);
+                mqtt_publish(&client, topic, application_message, strlen(application_message) + 1, qos_level);
             }
             printf("Sinks published %d message\n", sensor_per_sink);
         }else if(message_length > 0){
             char *application_message = gen_random(message_length);
 
-            mqtt_publish(&client, topic, application_message, strlen(application_message) + 1, MQTT_PUBLISH_QOS_0);
+            mqtt_publish(&client, topic, application_message, strlen(application_message) + 1, qos_level);
             printf("%s published : \"%s\"\n", hostname, application_message);
         }else{
             char *application_message = generate_string();
 
-            mqtt_publish(&client, topic, application_message, strlen(application_message) + 1, MQTT_PUBLISH_QOS_0);
+            mqtt_publish(&client, topic, application_message, strlen(application_message) + 1, qos_level);
             printf("%s published : \"%s\"\n", hostname, application_message);
         }
 
