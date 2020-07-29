@@ -8,6 +8,6 @@ RUN apk add --no-cache bash
 
 RUN chmod +x /usr/bin/publish
 
-CMD ["./usr/bin/publish", "0 1 50"]
+CMD ["./usr/bin/publish", "0", "1", "50"]
 
 USER nobody

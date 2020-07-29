@@ -33,7 +33,9 @@ void* client_refresher(void* client);
  */
 void exit_example(int status, int sockfd, pthread_t *client_daemon);
 
-
+/**
+    Generate temperature and humidity feedback with random value
+*/
 char * generate_string(){
     int temp = (rand() % (25 - 0 + 1)) + 0;        
     int hum = (rand() % (100 - 20 + 1)) + 20;
@@ -45,6 +47,9 @@ char * generate_string(){
     return application_message;
 }
 
+/**
+    Random string with payload len defined
+*/
 char * gen_random(const int len) {
     char * application_message = malloc(len);
 
@@ -62,9 +67,6 @@ char * gen_random(const int len) {
     return application_message;
 }
 
-/**
- * A simple program to that publishes the current time whenever ENTER is pressed. 
- */
 int main(int argc, const char *argv[]) 
 {
     srand(time(0));
@@ -76,25 +78,32 @@ int main(int argc, const char *argv[])
     int sink = 0;
     int sensor_per_sink = 0;
     int message_length = 0;
-    int qos_level = MQTT_PUBLISH_QOS_2;
+    int qos_level = MQTT_PUBLISH_QOS_0;
 
+    /*
+        Arg parsing
+    */
     if (argc > 1) {
+        // Propagation method
         method = atoi(argv[1]);
     }
 
     if (argc > 2) {
+        // Sink node or not
         sink = atoi(argv[2]);
     }
 
     if (argc > 3) {
+        // Number of sensors behind sink
         sensor_per_sink = atoi(argv[3]);
     }
 
     if (argc > 4) {
+        // Custom payload size
         message_length = atoi(argv[4]);
     }
 
-    addr = "192.168.178.47";
+    addr = "192.168.178.47"; //Address of the broker
     port = "1883";
     topic = "test";
 
@@ -115,8 +124,6 @@ int main(int argc, const char *argv[])
     uint8_t recvbuf[1024]; /* recvbuf should be large enough any whole mqtt message expected to be received */
 
     mqtt_init(&client, sockfd, sendbuf, sizeof(sendbuf), recvbuf, sizeof(recvbuf), publish_callback);
-    
-    /* Create an anonymous session */
     const char* client_id = hostname;
 
     /* Ensure we have a clean session */
@@ -131,27 +138,23 @@ int main(int argc, const char *argv[])
         // exit_example(EXIT_FAILURE, sockfd, NULL);
     }
 
-    /* start a thread to refresh the client (handle egress and ingree client traffic) */
-    /*pthread_t client_daemon;
-    if(pthread_create(&client_daemon, NULL, client_refresher, &client)) {
-        fprintf(stderr, "Failed to start client daemon.\n");
-        // exit_example(EXIT_FAILURE, sockfd, NULL);
-    }*/
-
     // Publishing infinite loop
     while(1){           
-        if(sink){
+        if(sink){ //Sink loop
+            // Sends all the messsage without waiting
             for(int i = 0; i < sensor_per_sink; i++){
                 char *application_message = generate_string();
                 mqtt_publish(&client, topic, application_message, strlen(application_message) + 1, qos_level);
             }
             printf("Sinks published %d message\n", sensor_per_sink);
         }else if(message_length > 0){
+            //Default message
             char *application_message = gen_random(message_length);
 
             mqtt_publish(&client, topic, application_message, strlen(application_message) + 1, qos_level);
             printf("%s published : \"%s\"\n", hostname, application_message);
         }else{
+            //Custom payload message
             char *application_message = generate_string();
 
             mqtt_publish(&client, topic, application_message, strlen(application_message) + 1, qos_level);
@@ -167,14 +170,13 @@ int main(int argc, const char *argv[])
         mqtt_sync(&client);
 
         if(method == 0){
+            // Waiting defined time
             sleep(1);
         }else{
+            // Waiting realistic time
             int wait = (rand() % (5 - 0 + 1)) + 0;
             sleep(wait);
-        }
-
-        
-        
+        }   
     }
 
     /* exit */ 
