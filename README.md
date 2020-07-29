@@ -6,6 +6,8 @@ MQTT protocol bench test based on Docker simulated sensor and Eclipse Mosquitto 
 Objective of the bench is to estimate the typical bandwitdh need of a MQTT protocol implementation. 
 Th structure is based on a virtual net composed of sensor and sinks (as publishers), a broker based on Mosquitto and a series of client (as subscribers).
 
+<img src="https://github.com/simoberny/mqtt-docker-bench/blob/master/_report/images/struttura.png" width="450">
+
 ### Clients
 Based on minimal Alpine image that run a C program simulating the sensor behaviour. 
 Also a python and Java implementation, but C was choosen for resource reason. 
@@ -52,4 +54,9 @@ To start the docker's client:
 ```bash
 docker-compose up -d
 ```
+
+
+### MQTT Overhead
+
+![MQTT Overhead](https://github.com/simoberny/mqtt-docker-bench/blob/master/_report/images/payload.png)
 
